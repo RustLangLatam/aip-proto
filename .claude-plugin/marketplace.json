@@ -1,0 +1,12 @@
+{
+  "name": "aip-proto",
+  "owner": { "name": "RustLangLatam" },
+  "description": "Skills for designing and auditing protobuf/gRPC APIs against Google's API Improvement Proposals.",
+  "plugins": [
+    {
+      "name": "aip-proto",
+      "source": "./",
+      "description": "Design and audit .proto APIs against Google AIPs (google.aip.dev) using the official api-linter plus a manual review."
+    }
+  ]
+}

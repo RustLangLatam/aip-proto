@@ -1,0 +1,55 @@
+// Deliberately non-compliant API used as a negative test fixture.
+// Every block below breaks at least one AIP; see tests/run.sh.
+syntax = "proto3";
+
+package acme.library.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+service Library {
+  // AIP-131: Get must take a request message named GetBookRequest with `name`.
+  rpc FetchBook(BookId) returns (Book) {
+    option (google.api.http) = {
+      post: "/v1/books/fetch"
+      body: "*"
+    };
+  }
+
+  // AIP-132/158: List without pagination, returns a bare repeated list.
+  rpc ListBooks(ListBooksRequest) returns (ListBooksResponse) {
+    option (google.api.http) = {
+      get: "/v1/books"
+    };
+  }
+}
+
+message BookId {
+  int64 id = 1;
+}
+
+// AIP-122/123: no resource annotation, no `name` field.
+message Book {
+  int64 bookID = 1;
+  string Title = 2;
+  // AIP-142: timestamps must be google.protobuf.Timestamp named *_time.
+  int64 created = 3;
+  google.protobuf.Timestamp modified_at = 4;
+  // AIP-126: enum without an UNSPECIFIED zero value.
+  Status status = 5;
+}
+
+enum Status {
+  ACTIVE = 0;
+  archived = 1;
+}
+
+message ListBooksRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListBooksResponse {
+  repeated Book result = 1;
+  int32 total = 2;
+}

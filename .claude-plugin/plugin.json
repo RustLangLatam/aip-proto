@@ -1,0 +1,9 @@
+{
+  "name": "aip-proto",
+  "version": "0.2.0",
+  "description": "Design and audit protobuf/gRPC APIs against Google's API Improvement Proposals (google.aip.dev). Wraps Google's official api-linter and adds a manual review of the AIPs no linter can check, with a certification verdict.",
+  "author": { "name": "RustLangLatam" },
+  "repository": "https://github.com/RustLangLatam/aip-proto",
+  "license": "MIT",
+  "keywords": ["aip", "protobuf", "proto", "grpc", "api-design", "api-linter", "audit", "google-api"]
+}

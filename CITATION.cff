@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use these skills, please cite this repository. The design guidance itself is Google's API Improvement Proposals (see references)."
+title: "aip-proto: Agent Skills for designing and auditing protobuf APIs against Google AIPs"
+type: software
+version: 0.2.0
+date-released: 2026-11-22
+license: MIT
+repository-code: "https://github.com/RustLangLatam/aip-proto"
+authors:
+  - name: "RustLangLatam"
+keywords:
+  - API design
+  - Protocol Buffers
+  - gRPC
+  - AIP
+  - api-linter
+  - agent skills
+references:
+  - type: website
+    title: "API Improvement Proposals — General AIPs"
+    authors:
+      - name: "Google"
+    url: "https://google.aip.dev/general"
+  - type: software
+    title: "api-linter"
+    authors:
+      - name: "Google"
+    version: "2.4.1"
+    repository-code: "https://github.com/googleapis/api-linter"

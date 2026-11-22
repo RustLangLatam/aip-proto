@@ -1,0 +1,13 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: stable }
+      - uses: bufbuild/buf-action@v1
+        with: { setup_only: true }
+      - run: go install github.com/googleapis/api-linter/v2/cmd/api-linter@latest
+      - run: PATH="$PATH:$(go env GOPATH)/bin" tests/run.sh
